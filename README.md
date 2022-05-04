@@ -1,2 +1,5 @@
-# 42_rainfall
-42 - an introduction to the exploitation of (elf-like) binary.
+# RAINFALL
+*This project is an introduction to the exploitation of (elf-like) binary*
+
+## About
+Rainfall is an iso challenge slightly more complex than Snow Crash. You will have to dive deep into reverse engineering, learn to reconstruct a code, and understand it to detect faults.
