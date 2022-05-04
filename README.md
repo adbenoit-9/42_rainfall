@@ -6,6 +6,6 @@ Rainfall is an iso challenge slightly more complex than Snow Crash. You will hav
 
 ## Usage
 ```
-$ git clone
+$ git clone https://github.com/adbenoit-9/42_rainfall.git
 $ cd 42_rainfall
 ```
