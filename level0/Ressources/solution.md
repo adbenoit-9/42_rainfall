@@ -1,4 +1,5 @@
 # Level 0
+*pass : level0*
 
 ```
 $ ssh level0@192.168.56.108 -p 4242
@@ -10,7 +11,7 @@ Segmentation fault (core dumped)
 
 extract `level0`
 ```
-scp -P 4242 level0@192.168.56.108:level0 .
+$ scp -P 4242 level0@192.168.56.108:level0 .
 ```
 
 Using `ghidra` :
