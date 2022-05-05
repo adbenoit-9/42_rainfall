@@ -2,6 +2,10 @@
 *pass: 53a4a712787f40ec66c3c26c1f4b164dcad5552b038bb0addd69bf5bf6fa8e77*
 
 ```
+$ scp -P 4242 level2@192.168.56.108:level2 .
+```
+
+```
 void main(void)
 
 {
