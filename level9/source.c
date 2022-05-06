@@ -1,3 +1,13 @@
+void __thiscall N::setAnnotation(N *this,char *param_1)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = strlen(param_1);
+  memcpy(this + 4,param_1,uVar1);
+  return;
+}
+
 void main(int param_1,int param_2)
 
 {
