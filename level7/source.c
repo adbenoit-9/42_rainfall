@@ -26,5 +26,6 @@ undefined4 main(undefined4 param_1,int param_2)
   uVar2 = fopen("/home/user/level8/.pass",&DAT_080486e9);
   fgets(c,0x44,uVar2);
   puts(&DAT_08048703);
+  
   return 0;
 }
