@@ -2,8 +2,9 @@
 *pass: f73dcb7a06f60e3ccc608990b0a046359d42a1a0489ffeefd0d9cb2d7c9cb82d*
 
 ```
-$ scp -P 4242 level7@192.178.56.108:level7 binary/
+$ scp -P 4242 level7@192.168.56.108:level7 binary/
 ```
+
 ## GOT overwrite
 objective : excute m() instead of puts()
 
