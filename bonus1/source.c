@@ -1,19 +1,19 @@
-undefined4 main(undefined4 param_1,int param_2)
+void main(int ac, char **av)
 {
-  undefined4 uVar1;
-  undefined local_3c [40];
-  int local_14;
+  int ret;
+  char *dest[40];
+  int nb;
   
-  local_14 = atoi(*(undefined4 *)(param_2 + 4));
-  if (local_14 < 10) {
-    memcpy(local_3c,*(undefined4 *)(param_2 + 8),local_14 * 4);
-    if (local_14 == 0x574f4c46) {
+  nb = atoi(*(undefined4 *)(**av + 4));
+  if (nb < 10) {
+    memcpy(dest,*(undefined4 *)(**av + 8),nb * 4);
+    if (nb == 0x574f4c46) {
       execl("/bin/sh",&DAT_08048580,0);
     }
-    uVar1 = 0;
+    ret = 0;
   }
   else {
-    uVar1 = 1;
+    ret = 1;
   }
-  return uVar1;
+  return ret;
 }

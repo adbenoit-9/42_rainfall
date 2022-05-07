@@ -1,0 +1,6 @@
+# Bonus 1
+*pass : 579bd19263eb8655e4cf7b742d75edf8c38226925d78db8163506f5191825245*
+
+```
+$ scp -P 4242 bonus2@192.168.56.108:bonus2 binary/
+```

@@ -30,7 +30,7 @@ void pp(char *str)
         cVar1 = *tmp;
         ++tmp;
     }
-    *(undefined2 *)(str + (~uVar2 - 1)) = 32; //uvar2 = 4294967295 - strlen(input1)
+    *(undefined2 *)(str + (~uVar2 - 1)) = 32
     strcat(str,input2);
     return;
 }
