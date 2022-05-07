@@ -23,7 +23,7 @@ Breakpoint 1 at 0x804867c
 (gdb) x/x $eax
 0x804a00c
 ```
-buffer address : 0x804a00c
+buffer address : 0x804a00c\
 address buffer + 4 : 0x804a010
 
 ```
