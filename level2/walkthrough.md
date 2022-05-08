@@ -1,8 +1,9 @@
 # Level 2
-*pass: 53a4a712787f40ec66c3c26c1f4b164dcad5552b038bb0addd69bf5bf6fa8e77*
+*password : 53a4a712787f40ec66c3c26c1f4b164dcad5552b038bb0addd69bf5bf6fa8e77*
 
+## Analyze
 ```
-$ scp -P 4242 level2@192.168.56.108:level2 .
+$ scp -P 4242 level2@192.168.56.108:level2 binary/
 ```
 
 ```
@@ -32,6 +33,9 @@ void p(void)
   return;
 }
 ```
+
+## Buffer overflow
+- get some addresses
 ```
 (gdb) info proc map
 ...

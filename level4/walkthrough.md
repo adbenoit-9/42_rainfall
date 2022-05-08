@@ -1,5 +1,5 @@
 # Level 4
-*pass: b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa*
+*password : b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa*
 
 ```
 $ scp -P 4242 level4@192.168.56.108:level4 .

@@ -1,5 +1,5 @@
 # Level 8
-*pass: 5684af5cb4c8679958be4abe6373147ab52d95768e047820bf382e44fa8d8fb9*
+*password : 5684af5cb4c8679958be4abe6373147ab52d95768e047820bf382e44fa8d8fb9*
 
 ```
 $ scp -P 4242 level8@192.168.56.108:level8 binary/
