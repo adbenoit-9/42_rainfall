@@ -17,6 +17,7 @@ $ scp -P 4242 level3@192.168.56.108:level3 .
 `m` address : 0x0804988c
 
 ## printf exploit
+
 - overwrite `m` value using printf
 - %n: print nothing and put the number of character in a int
 - use %n to put 64 in m

