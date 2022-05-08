@@ -5,12 +5,12 @@
 ```
 $ scp -P 4242 bonus0@192.168.56.108:bonus0 binary/
 ```
-~uVar2 => inverse chaque bit
+~uVar2 => inverse each bit
 ```
     *(undefined2 *)(str + (~uVar2 - 1)) = 32;
 ```
 32 = `space`\
-put a space at the end of input1
+put a space at the end of input1\
 ex: if no overflow output = "input1`space`input2"
 
 ## Buffer overflow : strcat exploit
