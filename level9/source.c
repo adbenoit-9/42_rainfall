@@ -33,5 +33,10 @@ int main(int ac,char **av)
 }
 
 // class N {
-//   char *annotation;
+//   private:
+//     char *annotation;
+
+//   public:
+//     N(N* this, int n);
+//     setAnnotation(N* this, char *str);
 // }
