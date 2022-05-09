@@ -7,34 +7,16 @@ $ scp -P 4242 level2@192.168.56.108:level2 binary/
 ```
 
 ```
-void main(void)
-
-{
-  p();
-  return;
-}
-```
-
-```
-void p(void)
-{
-  uint unaff_retaddr;
+...
   undefined local_50 [76];
   
   fflush(stdout);
   gets(local_50);
-  if ((unaff_retaddr & 0xb0000000) == 0xb0000000) {
-    printf("(%p)\n",unaff_retaddr);
-                    /* WARNING: Subroutine does not return */
-    _exit(1);
-  }
-  puts(local_50);
-  strdup(local_50);
-  return;
-}
+...
 ```
 
-## Buffer overflow
+## Buffer overflow : gets exploit
+objective : execute `/bin/sh`
 - get some addresses
 ```
 (gdb) info proc map

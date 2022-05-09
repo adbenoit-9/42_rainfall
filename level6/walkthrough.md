@@ -12,7 +12,7 @@ $ scp -P 4242 level6@192.168.56.108:level6 binary/
 
 ## Buffer overflow
 
-- execute `n()`
+objective : execute `n()`
 - compute offset : 64 + 4 * 2 = 72
 
 ```

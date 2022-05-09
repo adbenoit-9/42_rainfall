@@ -9,7 +9,7 @@ $ scp -P 4242 level7@192.168.56.108:level7 binary/
 
 ## GOT overwrite
 
-- excute `m()` instead of `puts()`
+objective : excute `m()` instead of `puts()`
 
 ```
 $ objdump -R ./level7 

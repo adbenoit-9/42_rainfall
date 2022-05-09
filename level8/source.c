@@ -56,14 +56,14 @@ undefined4 main(void)
     fd = 5;
     str_tmp = str;
     cmp = (byte *)"reset";
-    // while (bool4) {
-    //   if (fd == 0) break;
-    //   --fd;
-    //   bool3 = *str_tmp < *cmp;
-    //   bool4 = *str_tmp == *cmp;
-    //   ++str_tmp;
-    //   ++cmp;
-    // }
+    while (bool4) {
+      if (fd == 0) break;
+      --fd;
+      bool3 = *str_tmp < *cmp;
+      bool4 = *str_tmp == *cmp;
+      ++str_tmp;
+      ++cmp;
+    }
     bool5 = 0;
     bool3 = (!(bool)bool3 && !(bool)bool4) == (bool)bool3;
     if ((bool)bool3) {

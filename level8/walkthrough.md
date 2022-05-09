@@ -10,19 +10,19 @@ $ scp -P 4242 level8@192.168.56.108:level8 binary/
 bool4 must be true
 
 ```
-    while ((bool)bool3) {
-      if (fd == 0) break;
-      --fd;
-      bool4 = *str_tmp < *cmp;
-      bool3 = *str_tmp == *cmp;
-      ++str_tmp;
-      ++cmp;
-    }
+while ((bool)bool3) {
+  if (fd == 0) break;
+  --fd;
+  bool4 = *str_tmp < *cmp;
+  bool3 = *str_tmp == *cmp;
+  ++str_tmp;
+  ++cmp;
+}
 ```
 
 at the end of the loop str_tmp[i] must be < to cmp[i]
 
-cmp = "login"
+cmp = "login"\
 str = input
 
 ### Check
@@ -36,17 +36,17 @@ condition pass
 
 ---
 
-auth[8] must be different to '\0'
+auth[8] (auth + 32) must be different to '\0'
 
 ```
-      if (auth[8] == 0) {
-        fwrite("Password:\n",1,10,stdout);
-      }
-      else {
-        system("/bin/sh");
-      }
+  if (auth[8] == 0) {
+    fwrite("Password:\n",1,10,stdout);
+  }
+  else {
+    system("/bin/sh");
+  }
 ```
-
+So if service address = auth address + 32 : auth[8] != 0
 ### Check
 ```
 $ ./level8
@@ -60,3 +60,4 @@ login
 $ cat /home/user/level9/.pass
 c542e581c5ba5162a85f767996e3247ed619ef6c6f7b76a59435545dc6259f8a
 ```
+`0x804a028 - 0x804a008 = 32`

@@ -12,7 +12,7 @@ memcpy(dest,*(undefined4 *)(**av + 8),nb * 4);
 ```
 
 ## Buffer overflow : memcpy expoit
-
+objective : execute `/bin/sh`
 - nb must be < 10
 - compute offset : 8 * 2 + 40 = 56
 - we want : (unsigned int)(nb * 4) = 60

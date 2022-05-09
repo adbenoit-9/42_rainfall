@@ -41,6 +41,7 @@ conclusion :
 - &stack0x00000004 = av[1]
 
 ## Buffer overflow : strcat exploit
+objective : execute `/bin/sh`
 
 - find the correct length of the first parameter to overwrite all '/0' until the second parameter => `40`
 - use the correct language : environment LANG (en, fi or nl)

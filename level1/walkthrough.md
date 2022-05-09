@@ -38,7 +38,7 @@ void run(void)
 
 ## Buffer overflow
 
-- Excecute run function.
+objective : execute `run()` function.
 
 ```
 (gdb) info funct run

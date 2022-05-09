@@ -1,13 +1,13 @@
 # Level 5
 *password : 0f99ba5e9c446258a69b290407a6c60859e9c2d25b26575cafc9ae6d75e9456a*
 
+## Analyze
 ```
 $ scp -P 4242 level5@192.168.56.108:level5 .
 ```
 
 ## Printf exploit
-
-- use printf to execute o().
+objective : use printf to execute o()
 - replace the return address of exit() by o()
 
 ```
