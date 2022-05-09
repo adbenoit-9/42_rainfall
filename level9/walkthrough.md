@@ -26,8 +26,8 @@ Breakpoint 1 at 0x804867c
 (gdb) x/x $eax
 0x804a00c
 ```
-address `buffer` : 0x804a00c\
-address `buffer + 4` : 0x804a010\
+address `ptr` : 0x804a00c => access to the class\
+address `ptr + 4` : 0x804a010 => access to the first element of the class
 - compute NOP-sled length : 108 - 25 - 4 = 79
 
 ```
