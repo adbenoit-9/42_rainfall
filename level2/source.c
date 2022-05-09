@@ -15,7 +15,7 @@ void p(void)
   return;
 }
 
-void main(void)
+int main(void)
 
 {
   p();

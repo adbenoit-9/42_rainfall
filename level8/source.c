@@ -1,4 +1,4 @@
-undefined4 main(void)
+int main(void)
 {
   char cVar1;
   int fd;
@@ -32,13 +32,12 @@ undefined4 main(void)
       ++str_tmp;
       ++cmp;
     }
-    // bool2 == 0
     bool3 = 0;
     bool4 = (!bool1 && !bool2) == bool1;
     if (bool4) {
       auth = (undefined4 *)malloc(4);
       *auth = 0;
-      uVar3 = 0xffffffff; // decimal 4294967295
+      uVar3 = 0xffffffff; // unsigned int max
       tmp_auth = in_auth;
       while (cVar1 != '\0') {
         if (uVar3 == 0) break;
@@ -98,8 +97,8 @@ undefined4 main(void)
       ++str_tmp;
       ++cmp;
     }
-    // bool3 = 0
-    // if ((!(bool)bool4 && !(bool)bool3) == (bool)bool4) {
+    bool3 = 0
+    if ((!(bool)bool4 && !(bool)bool3) == (bool)bool4) {
     if (bool4)
       if (auth[8] == 0) {
         fwrite("Password:\n",1,10,stdout);

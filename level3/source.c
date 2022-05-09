@@ -12,9 +12,9 @@ void v(void)
   return;
 }
 
-void main(void)
+int main(void)
 
 {
   v();
-  return;
+  return 0;
 }

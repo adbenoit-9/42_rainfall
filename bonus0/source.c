@@ -35,7 +35,7 @@ void pp(char *str)
     return;
 }
 
-void main(void)
+int main(void)
 {
   char str[54];
   

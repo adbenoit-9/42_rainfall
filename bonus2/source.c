@@ -1,4 +1,3 @@
-
 void greetuser(void)
 {
   undefined4 local_4c;

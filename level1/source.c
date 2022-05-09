@@ -6,7 +6,7 @@ void run(void)
   return;
 }
 
-void main(void)
+int main(void)
 
 {
   undefined local_50 [76];
